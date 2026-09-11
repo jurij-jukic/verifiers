@@ -1,0 +1,21 @@
+model = "qwen2.5:3b"
+num_tasks = 1
+num_rollouts = 1
+
+[client]
+base_url = "http://localhost:11434/v1"
+api_key_var = "local_model_ollama"
+
+[env.taskset]
+id = "harbor"
+dataset = "harbor/hello-world"
+ignore_dockerfile = true
+
+[env.agent.harness]
+id = "bash"
+
+[env.agent.runtime]
+type = "docker"
+
+[sampling]
+max_tokens = 512
