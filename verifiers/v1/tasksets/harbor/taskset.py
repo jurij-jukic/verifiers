@@ -271,6 +271,7 @@ class HarborTask(Task[HarborData, State, HarborTaskConfig]):
                     f"collect hook failed (exit {result.exit_code}): "
                     f"{hook.command}\n{detail}"
                 )
+        logger.warning("harbor taskset")
         if not self.scoring_deferred:
             trace.state.artifacts = await collect(runtime, self.data.artifacts)
 

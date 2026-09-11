@@ -472,6 +472,8 @@ class Rollout:
                         await invoke(
                             self.task.finalize, {"trace": trace, "runtime": runtime}
                         )
+                        logger.warning("rollout")
+                        logger.warning(not trace.state.artifacts)
                         if self._collect_artifacts and not trace.state.artifacts:
                             trace.state.artifacts = await collect(
                                 runtime, self.task.data.artifacts
